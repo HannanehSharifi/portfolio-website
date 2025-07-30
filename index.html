@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"><!--یعنی این صفحه از تمام کاراکتر های فارسی و انگلیسی ساپورت میکنه-->
+    <title>My Resume</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+        <button onclick="showPage('home')">Home</button>
+        <button onclick="showPage('skills')">Skills</button>
+        <button onclick="showPage('projects')">Projects</button>
+        <button onclick="showPage('contact')">Contact</button>
+        <button onclick="toggleTheme()">Dark/Light</button>
+    </nav>
+
+    <section id="home" class="page">
+        <h1>Hannaneh Sharifi</h1>
+        <p>Frontend Developer | Computer Engineering Student</p>
+    </section>
+
+    <section id="skills" class="page" style="display: none;"><!--its hidden at first-->
+        <h1>Skills</h1>
+        <div id="skillsList"></div>
+    </section>
+
+    <section id="projects" class="page" style="display: none;">
+        <h1>Projects</h1>
+        <div id="projectsList"></div>
+    </section>
+
+    <section id="contact" class="page" style="display: none;">
+        <h1>Contact Me</h1>
+        <form id="contactForm">
+            <input type="text" id="name" name="name" placeholder="Your Name" required><br>
+            <input type="email" id="email" name="email" placeholder="Your Email" required><br>
+            <textarea placeholder="Your Message" name="message" id="message"
+                required></textarea><br><!--textareaفرقش با inputاینه که اینپوت برا یه خط فقط استفاده میشه اما تکست ارا برای متن چند خطی استفاده میشه-->
+            <button type="submit">Send</button>
+        </form>
+
+        <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+        <script>
+            (function () {
+                emailjs.init("Mhe5pwpEbK9qXqqet");
+            })();
+        </script>
+
+        <script>
+            document.getElementById("contactForm").addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                emailjs.sendForm("service_oi4j3ff", "template_h3cmmzt", this)
+                    .then(() => {
+                        alert("Sent successfully!");
+                        this.rest();
+                    }, (error) => {
+                        alert("failed!tray egain");
+                        console.log(error);
+
+                    });
+            });
+        </script>
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
