@@ -64,7 +64,7 @@ contactForm.addEventListener('submit', function (e) {
     console.log("Email:", email);
     console.log("Message:", message);
 
-    alert("Sent successfully!");
+    
 
     contactForm.reset();
 });
