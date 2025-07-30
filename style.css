@@ -21,7 +21,7 @@ nav button {
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    /*transition: background 0.3s, color 0.3s;*/
+    
 }
 
 .page {
@@ -97,3 +97,52 @@ body.night #contactForm textarea {
     color: #f5f5f5;
     border: 1px solid #555;
 }
+
+nav {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+@media(max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 9px;
+    }
+
+    .page {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    #contactForm input,
+    #contactForm textarea {
+        font-size: 16px;
+    }
+
+    #contactForm button {
+        width: 100%;
+        font-size: 16px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    nav button {
+        font-size: 14px;
+        padding: 11px;
+    }
+
+    .page {
+        padding: 10px;
+    }
+
+    #contactForm input,
+    #contactForm textarea {
+        font-size: 14px;
+    }
+
+    #contactForm button {
+        font-size: 14px;
+    }
+}
+
